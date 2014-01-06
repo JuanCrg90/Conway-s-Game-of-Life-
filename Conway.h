@@ -22,10 +22,20 @@ void applyChanges(int *board,int w);
 void printStatus(int *board,int h,int w);
 
 
-//Demos
+//Oscillators
 void Blinker(int *board,int h,int w);
-void Toad (int *board,int h,int w);
+void Toad(int *board,int h,int w);
+void Beacon(int *board,int h,int w);
+void Pulsar(int *board,int h,int w);
+
+//Spaceships
+void Glider(int *board,int h,int w);
+void LWSS(int *board,int h,int w);
+
+//Gosper glider gun
+void GGG(int *board,int h,int w);
 
 
 
 #endif // CONWAY_H
+

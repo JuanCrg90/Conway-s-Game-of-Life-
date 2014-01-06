@@ -76,37 +76,37 @@ int checkNeighbors(int *board, int i, int j,int h,int w)
 {
     int result=0;
 
-    //Arriba
+    //Up
     if((i-1)>=0)
         result+=board[(i-1)*w+j];
 
-    //Arriba-Izquierda
+    //Up-Left
     if((i-1)>=0 && (j-1)>=0)
         result+=board[(i-1)*w+(j-1)];
 
-    //Izquierda
+    //Left
     if((j-1)>=0)
         result+=board[i*w +(j-1)];
 
 
-    //Abajo-Izquierda
+    //Down-Left
     if((i+1)<h && (j-1)>=0)
         result+=board[(i+1)*w+(j-1)];
 
 
-    //Abajo
+    //Down
     if((i+1)<h)
         result+=board[(i+1)*w+j];
 
-    //Abajo-Derecha
+    //Down-Right
     if((i+1)<h && (j+1)<w)
         result+=board[(i+1)*w+(j+1)];
 
-    //Derecha
+    //Right
     if((j+1)<w)
         result+=board[i*w +(j+1)];
 
-    //Arriba-Derecha
+    //Up-Right
     if((i-1)>=0 && (j+1)<w)
         result+=board[(i-1)*w+(j+1)];
 
@@ -144,7 +144,7 @@ void printStatus(int *board,int h,int w)
     printf("\n");
 }
 
-/////////////////////////////////////Demos/////////////////////////////////////
+/////////////////////////////////////Oscillators/////////////////////////////////////
 
 /*
   Blinker
@@ -161,10 +161,6 @@ void Blinker(int *board, int h, int w)
 {
 
     int i,j;
-
-
-
-
 
     for(i=0;i<h;i++)
     {
@@ -217,4 +213,260 @@ void Toad(int *board, int h, int w)
 
 }
 
+
+
+/*
+  Beacon
+    0 0 0 0 0 0
+    0 1 1 0 0 0
+    0 1 0 0 0 0
+    0 0 0 0 1 0
+    0 0 0 1 1 0
+    0 0 0 0 0 0
+
+  */
+
+void Beacon(int *board,int h,int w)
+{
+
+    int i,j;
+
+
+    for(i=0;i<h;i++)
+    {
+        for(j=0;j<w;j++)
+        {
+            board[i*w+j]=DEAD;
+        }
+    }
+
+    board[1*w+1]=LIVE;
+    board[1*w+2]=LIVE;
+    board[2*w+1]=LIVE;
+
+    board[3*w+4]=LIVE;
+    board[4*w+4]=LIVE;
+    board[4*w+3]=LIVE;
+
+}
+
+/*
+  Pulsar
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0
+    0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0
+    0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0
+    0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0
+    0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0
+    0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0
+    0 0 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 1 1 1 0 0 0 1 1 1 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+*/
+
+
+void Pulsar(int *board,int h,int w)
+{
+
+    int i,j;
+
+
+    for(i=0;i<h;i++)
+    {
+        for(j=0;j<w;j++)
+        {
+            board[i*w+j]=DEAD;
+        }
+    }
+
+    board[4*w+2]=LIVE;
+    board[5*w+2]=LIVE;
+    board[6*w+2]=LIVE;
+    board[2*w+4]=LIVE;
+    board[2*w+5]=LIVE;
+    board[2*w+6]=LIVE;
+    board[4*w+7]=LIVE;
+    board[5*w+7]=LIVE;
+    board[6*w+7]=LIVE;
+    board[7*w+4]=LIVE;
+    board[7*w+5]=LIVE;
+    board[7*w+6]=LIVE;
+
+    board[10*w+2]=LIVE;
+    board[11*w+2]=LIVE;
+    board[12*w+2]=LIVE;
+    board[9*w+4]=LIVE;
+    board[9*w+5]=LIVE;
+    board[9*w+6]=LIVE;
+    board[10*w+7]=LIVE;
+    board[11*w+7]=LIVE;
+    board[12*w+7]=LIVE;
+    board[14*w+4]=LIVE;
+    board[14*w+5]=LIVE;
+    board[14*w+6]=LIVE;
+
+    board[4*w+9]=LIVE;
+    board[5*w+9]=LIVE;
+    board[6*w+9]=LIVE;
+    board[2*w+10]=LIVE;
+    board[2*w+11]=LIVE;
+    board[2*w+12]=LIVE;
+    board[4*w+14]=LIVE;
+    board[5*w+14]=LIVE;
+    board[6*w+14]=LIVE;
+    board[7*w+10]=LIVE;
+    board[7*w+11]=LIVE;
+    board[7*w+12]=LIVE;
+
+
+    board[10*w+9]=LIVE;
+    board[11*w+9]=LIVE;
+    board[12*w+9]=LIVE;
+    board[9*w+10]=LIVE;
+    board[9*w+11]=LIVE;
+    board[9*w+12]=LIVE;
+    board[10*w+14]=LIVE;
+    board[11*w+14]=LIVE;
+    board[12*w+14]=LIVE;
+    board[14*w+10]=LIVE;
+    board[14*w+11]=LIVE;
+    board[14*w+12]=LIVE;
+
+
+}
+
+/////////////////////////////////////Spaceships/////////////////////////////////////
+
+/*
+  Glider
+  1 1 1
+  1 0 0
+  0 1 0
+
+  */
+
+
+void Glider(int *board, int h, int w)
+{
+
+    int i,j;
+
+    for(i=0;i<h;i++)
+    {
+        for(j=0;j<w;j++)
+        {
+            board[i*w+j]=DEAD;
+        }
+    }
+
+    board[2*w+1]=LIVE;
+    board[2*w+2]=LIVE;
+    board[2*w+3]=LIVE;
+    board[3*w+1]=LIVE;
+    board[4*w+2]=LIVE;
+
+
+}
+
+void LWSS(int *board, int h, int w)
+{
+
+    int i,j;
+
+    for(i=0;i<h;i++)
+    {
+        for(j=0;j<w;j++)
+        {
+            board[i*w+j]=DEAD;
+        }
+    }
+
+    board[1*w+2]=LIVE;
+    board[1*w+5]=LIVE;
+
+    board[2*w+1]=LIVE;
+    board[3*w+1]=LIVE;
+    board[4*w+1]=LIVE;
+
+    board[3*w+5]=LIVE;
+
+    board[4*w+2]=LIVE;
+    board[4*w+3]=LIVE;
+    board[4*w+4]=LIVE;
+
+
+
+}
+
+
+
+/////////////////////////////////////Gosper glider gun/////////////////////////////////////
+void GGG(int *board,int h,int w)
+{
+    int i,j;
+
+
+    for(i=0;i<h;i++)
+    {
+        for(j=0;j<w;j++)
+        {
+            board[i*w+j]=DEAD;
+        }
+    }
+
+    board[5*w+1]=LIVE;
+    board[5*w+2]=LIVE;
+    board[6*w+1]=LIVE;
+    board[6*w+2]=LIVE;
+
+    board[3*w+35]=LIVE;
+    board[3*w+36]=LIVE;
+    board[4*w+35]=LIVE;
+    board[4*w+36]=LIVE;
+
+
+    board[3*w+13]=LIVE;
+    board[3*w+14]=LIVE;
+    board[4*w+12]=LIVE;
+    board[4*w+16]=LIVE;
+    board[5*w+11]=LIVE;
+    board[5*w+17]=LIVE;
+    board[6*w+11]=LIVE;
+    board[6*w+15]=LIVE;
+    board[6*w+17]=LIVE;
+    board[6*w+18]=LIVE;
+    board[7*w+11]=LIVE;
+    board[7*w+17]=LIVE;
+    board[8*w+12]=LIVE;
+    board[8*w+16]=LIVE;
+    board[9*w+13]=LIVE;
+    board[9*w+14]=LIVE;
+
+
+    board[3*w+21]=LIVE;
+    board[3*w+22]=LIVE;
+    board[4*w+21]=LIVE;
+    board[4*w+22]=LIVE;
+    board[5*w+21]=LIVE;
+    board[5*w+22]=LIVE;
+    board[2*w+23]=LIVE;
+    board[6*w+23]=LIVE;
+    board[2*w+25]=LIVE;
+    board[6*w+25]=LIVE;
+    board[1*w+25]=LIVE;
+    board[7*w+25]=LIVE;
+
+
+
+
+
+}
 

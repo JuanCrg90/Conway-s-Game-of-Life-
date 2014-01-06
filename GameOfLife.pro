@@ -10,3 +10,6 @@ HEADERS += \
     Conway.h \
     linklist.h
 
+OTHER_FILES += \
+    README.MD
+

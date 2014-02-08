@@ -11,5 +11,6 @@ HEADERS += \
     linklist.h
 
 OTHER_FILES += \
-    README.MD
+    README.md
 
+LIBS +=  -lfreeglut -lopengl32 -lglu32

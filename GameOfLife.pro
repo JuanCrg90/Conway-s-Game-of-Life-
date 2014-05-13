@@ -13,4 +13,5 @@ HEADERS += \
 OTHER_FILES += \
     README.md
 
-LIBS +=  -lfreeglut -lopengl32 -lglu32
+#LIBS +=  -lfreeglut -lopengl32 -lglu32
+LIBS += -lm -lGL -lglut -lGLU

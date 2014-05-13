@@ -22,6 +22,8 @@ void idle(void);
 void drawStatus();
 void keyboard(unsigned char key,int x, int y);
 
+void delay();
+
 int main(int argc, char *argv[])
 {
 
@@ -74,11 +76,13 @@ void display(void)
 
     glPointSize(10.0);
     drawStatus();
-    Sleep(100);
+    //Sleep(100);
+    usleep(100000);
 
     glFlush();
     glutSwapBuffers();
 }
+
 
 
 void idle()
